@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stop Terrorist Parole - Letter</title>
+</head>
+<body>
+    <div>This is a test</div>
+</body>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+ <script>
+     $(function() {
+         var accessToken = "gr9iEujekb4pE5KWf13hlnMVUYaeJYdsedJs7iI-TfjtpzWrQ03CDQYa5aDm9Kvc3R5kM1biW3c-amU549AUTSjGcVVdG1X6adQgS3oP8MnKBQQZGyymWW0nN5RJ2Arfu5XebrI5j6bV56UtfDQ9xSU_dllcEuZGcj_BM9bD6Jy03EcPA-Q499x3kDTa2DNvY5r82UQt2S9FqSso8ysZoC6j90CeiZQl-wK9oKc6VDa8dR19jwURr8W07smkoWLrIitW2Z1yHGQWKNMgk_hPsG76p6f3yOnMAuuZbSdCw1dovr27WsrsmkubHeV-EB-EBzTLxMuWPosYzL0KnV7cb7PoThfVXjiOGEnFxASBhXFno9j0iGFeu9vDNoEgvMInTYyx9kyOJPVWt88ig8KGJyK8R-d_WszFGX9LFkJUzL2Q5_zT8ORt0oCaK_QFw-_DVky7qIRhkXRAqWkCdWBXujeQXl39X9vyXU56gX3fG4A";
+         $.ajax({
+             url:'http://localhost:31626/api/email/send',
+             method: 'POST',
+             contentType: 'application/json',
+             headers: {
+                 'Authorization': 'Bearer ' + accessToken
+             }, 
+             data: JSON.stringify({
+                Name: 'murat kazanova',
+                Content: 'This is the email content' 
+             }),
+             success: function() {
+                 alert('Email sent.')
+             },
+             error: function(jqXHR) {
+                 alert(jqXHR.responseText);
+             }  
+         })
+     })
+</script>
+</html>
