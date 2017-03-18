@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Thanks</title>
+    <style>
+        .tyTitle {
+            font-weight: bold;
+            font-size: 56px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        form label {
+            font-size: 12px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-bottom: -2px;
+        }
+        
+        .formHeader {
+            background-color: darkgray;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: larger;
+            font-weight: bold;
+        }
+        
+        .successSent {
+            background-color: lightgreen;
+            text-align: center;
+            margin-bottom: 0;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+</head>
+
+<body ng-app="thanksApp">
+    <div class="container" ng-controller="thanksController">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="tyTitle">Thanks</h1>
+                <p><strong>Thank you very much for supporting this cause by writing this letter to Governor Brown.</strong></p>
+                <p>Help us spread the word about this issue. Type your friends' email addresses into the box and we will forward
+                    this alert on your behalf. Together we can make a difference!</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 well">
+                <div class="row">
+                    <div class="col-md-12 formHeader" id="formHeader">
+                        Optionally send a message to your friends:
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form name="thanksForm" ng-submit="onSubmit()" novalidate>
+                            <div class="form-group">
+                                <label for="emailaddress">SEND EMAIL TO:</label>
+                                <input type="text" id="txtEmailAddress" name="txtEmailAddress" class="form-control" ng-model="emailaddress" placeholder="Separate multiple addresses with commas"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">SUBJECT:</label>
+                                <input type="text" id="txtSubject" name="txtSubject" class="form-control" ng-model="subject" placeholder="Make Your Voice Heard"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">MESSAGE (OPTIONAL)</label>
+                                <textarea type="text" id="txtMessage" rows="15" name="txtMessage " class="form-control " ng-model="message "></textarea>
+                            </div>
+                            <div style="text-align:center;">
+                                <input class="btn btn-default" type="submit" style="width:120px;border-radius:20px; font-weight: bold; padding:10px;" ng-disabled="thanksForm.$invalid"
+                                    value="SEND" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Sending Email</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="modalDynamicBody">Please wait, your message is on its way.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function getParameterByName(name, url) {
+            if (!url) {
+                url = window.location.href;
+            }
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+        var app = angular.module('thanksApp', []);
+        app.controller('thanksController', ['$scope','$http', function ($scope,$http) {
+            var accessToken = '4QFrvGUqvoUd800G-R0ucyFy9NFGp-uSjw7i71VF2TpsgS3saiOVgzwDvh1OAOAj2F_cDv3-mzpG8EoTk5f3TlSofW8SR_bynBI_pZh1Z9P_JWSKZ0RhxvvHpIC-woqUjZRWQZHk-1QyjELlbaWwTR6VxBqgKCOKNVJDqP6ZXwz-q8I-v8quMxOES8AnYcAxSmiL-AkOt5P16CDoCpuy4H7GAWJyoCB_-ydY_M9EPpaNeQKC4j79FWfl3_jDPG9Nc_1sSb-Sd1zwYRTWXFIjIAVCcz9s90iMKT5KnmXkqnFA5G280NnCrGh8a-YmpRpEyCPR8bY2UiNM257emKgthWIkbJYm-DoZ3Jv6Czupan60-SvnmkFoPQh-xsAlkTDvN-lofeMJtHOscDHrUHPIjdyZD05cEBrqrLXsOhBCgePiQzNSCJWHF_353nL7r8ko5lbEs9b045AGl1POlH9zbYLPNJ3pKrG_pma0ztgBsjuXp5u9G44dEbNOeUbjQ0kjB0n2wxy3Lt_VHVFGHn6LFA';
+            $scope.message = "I just took action on an issue that I consider important. I urge you to take action yourself and spread the word!";
+            $scope.onSubmit = function () {
+                // TODO: build email body here and send to mksoftwaresolutions.net
+                var modalDynamicBody = $('#modalDynamicBody').html();
+                $('#modalDynamicBody').html(getParameterByName('name') + '<br/>' +  modalDynamicBody);
+                $('#myModal').modal('show');
+
+                mailItem = {};
+                mailItem.From = getParameterByName('email');
+                mailItem.To = $scope.emailaddress.split(',');
+                mailItem.Subject = $scope.subject;
+                mailItem.Body = '<div>Your friend ' + getParameterByName('name') + ' says,<br/>' + $scope.message + '</div>';
+
+                $http.post('http://www.mksoftwaresolutions.net/services/api/email/send', mailItem, {
+                    headers: {
+                        'Authorization': 'Bearer ' + accessToken,
+                        'Content-Type': 'application/json'
+                    }
+                }).then(
+                    //success
+                    function (data) {
+                        if (data.status == 200) {
+                            $('#myModal').modal('hide');                           
+                            $('#formHeader').addClass('successSent').text('Your message has been sent !!!');
+                            $('form[name=thanksForm]').hide();
+                        }
+                    },
+                    // error
+                    function (data) {
+                        $('#modalDynamicBody').html('<div style="color:red;">Error:'+ data.status + ' - ' + data.statusText + '</div');
+                    });                
+            }
+        }]);
+    </script>
+</body>
+
+</html>
