@@ -186,31 +186,33 @@
                     <div class="col-md-12">
                         <div id="divtemplate1">
                             <p style="color:maroon; font-weight:bold;">Re: STOP SASSOUNIAN PAROLE</p>
-                            <h4 style="font-weight:bold;">Prison Psychiatrist Warns: “No Assurance”</h4>
+                            <h4 style="font-weight:bold;">Do Not Reward ARF Terrorism</h4>
                             <p>Dear Governor Brown:</p>
-                            <p>I am afraid for myself and family following the horrific December 14 decision of two Parole Commissioners
-                                to grant provisional parole to Hampig “Harry” Sassounian, a member of the "Justice Commandos”
-                                JCAG terrorist organization, who assassinated a Turkish diplomat in Los Angeles.</p>
-                            <p>The prison psychiatrist expressly warned that there was “no assurance” how Sassounian will react
-                                to political triggers in free society, particularly with respect to expressions and peaceful
-                                political activity that challenge his radical views. Recently, Sassounian published an article
-                                in an Armenian militia magazine, Hay Zinvor, stating that as soon as he is released, he will
-                                be joining the armed struggle of the Armenian Cause. At his parole hearing, Sassounian expressed
-                                regret for writing the article, but not for its stated intentions. Sassounian unbelievably
-                                continues to deny his connections to the terrorist organization JCAG, which proudly claimed
-                                credit for Sassounian’s assassination of Mr. Arikan, and shows no remorse for his terrorist
-                                activities. Worse, Sassounian refuses to speak out against the Armenian community who applauds
-                                him as a hero, and funds his legal defense, including five parole hearings to date.</p>
-                            <p>Sassounian has repeatedly stated that he is a man of his word. In his militia magazine article,
-                                Sassounian stated that serving a prison sentence is only a part of his journey of fighting
-                                for Armenia, which he promises to continue again in violent form if and when he is released.</p>
-                            <p>As a resident of California who is a victim of Armenian violent extremism, I am concerned for
-                                my safety and the safety of my family and my community. The prison psychiatrist's carefully
-                                worded warning is more than a caveat or a disclaimer. Sassounian admitted that as soon as
-                                he is released he would resume armed struggle, this time targeting Azerbaijan diplomats.
-                                What further evidence must the Commissioners hear before they understand that there is a
-                                real threat?</p>
-                            <p>Please reverse the decision of Commissioners, and keep us safe.</p>
+                            <p>I am deeply concerned regarding the December 14 misguided decision of Commissioners Montes and
+                                Riordan to provide provisional parole to Hampig “Harry” Sassounian, who assassinated a foreign
+                                diplomat on American soil.</p>
+                            <p>Sassounian was a member of the "Justice Commandos” (JCAG), which according to the FBI has been
+                                the most active Middle Eastern terrorist group ever on American soil. JCAG killed 4 Turkish
+                                diplomats in America, and injured dozens of other Americans. JCAG killed over 45 Turkish
+                                diplomats, 40 civilians, and injured over 700 people worldwide. The California Armenian community
+                                supplied the majority of JCAG operatives, who were immigrants from the Middle East at a time
+                                when vetting extremists was not a part of U.S. immigration policy. Sassounian was a proud
+                                member of JCAG, bearing its insignia in a tattoo on his chest, and holding its flag in one
+                                hand and automatic firearms in the other hand in photos in the crime file.</p>
+                            <p>According to the FBI, Sassounian’s terror group, JCAG, was the militant wing of the Armenian
+                                Revolutionary Federation (ARF) political party, which is represented in the U.S. by the Armenian
+                                National Committee of America (ANCA), who is lobbying for the release of Sassounian. Indeed,
+                                the former Chairman of ANCA, Mourad Topalian, himself, was convicted in federal court of
+                                illegally possessing weapons, explosives and ammunition in a storage locker near a public
+                                school in Cleveland, Ohio, which the FBI linked to several JCAG terrorist attacks nationwide,
+                                including one at the United Nations Plaza.</p>
+                            <p>Unbelievably, Sassounian denies his connections to JCAG. He shows no remorse for his terrorist
+                                activities. Worse, he has refused to oppose those who applaud him as a hero of the Armenian
+                                Cause.
+                            </p>
+                            <p>As a resident of California, I am concerned for the safety of my family and community. The prison
+                                psychiatrist's report warns there is no assurance how Sassounian will react in free society.</p>
+                            <p>Please reverse the decision of the Parole Board, keep this assassin behind bars, and keep us safe.</p>
                         </div>
                         <div id="divtemplate2">
                             <p style="color:maroon; font-weight:bold;">Re: STOP SASSOUNIAN PAROLE</p>
@@ -455,14 +457,14 @@
                 // TODO: build email body here and send to mksoftwaresolutions.net
                 $('#myModal').modal('show');
                 mailItem = {};
-                mailItem.To = ['mkazanova.us@gmail.com','sk@studiocreativeedge.com'];
+                mailItem.To = ['mkazanova.us@gmail.com', 'sk@studiocreativeedge.com'];
                 mailItem.From = $scope.emailaddress;
                 mailItem.Subject = 'Re: STOP SASSOUNIAN PAROLE';
                 mailItem.Body = $('#div' + $scope.template).html();
                 mailItem.Body += '<p>Respectfully, <br/> ' +
                     $scope.title + ' ' + $scope.firstname + ' ' + $scope.lastname + '<br/>' +
                     $scope.addressline1 + '' + ($scope.addressline2 && $scope.addressline2.length > 0 ? ', ' + addressline2 : '') + ' ' +
-                    $scope.city + ', ' + $scope.state + ' ' + $scope.postalcode + '<br/>' + 
+                    $scope.city + ', ' + $scope.state + ' ' + $scope.postalcode + '<br/>' +
                     '<a href="mailto:' + $scope.emailaddress + '">' + $scope.emailaddress + '</a></p>';
 
                 $http.post('http://www.mksoftwaresolutions.net/services/api/email/send', mailItem, {
@@ -482,7 +484,7 @@
                     },
                     // error
                     function (data) {
-                        $('#modalDynamicBody').html('<div style="color:red;">Error:'+ data.status + ' - ' + data.statusText + '</div');
+                        $('#modalDynamicBody').html('<div style="color:red;">Error:' + data.status + ' - ' + data.statusText + '</div');
                     });
             }
         }]);
