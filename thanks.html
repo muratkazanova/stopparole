@@ -126,9 +126,8 @@
                 mailItem.Subject = $scope.subject;
                 mailItem.Body = '<div>Your friend ' + getParameterByName('name') + ' says,<br/>' + $scope.message + '</div>';
 
-                $http.post('http://www.mksoftwaresolutions.net/services/api/email/send', mailItem, {
-                    headers: {
-                        'Authorization': 'Bearer ' + accessToken,
+                $http.post('https://mkssazurefunctions.azurewebsites.net/api/SendEmail', mailItem, {
+                    headers: {                        
                         'Content-Type': 'application/json'
                     }
                 }).then(

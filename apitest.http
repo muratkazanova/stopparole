@@ -1,0 +1,11 @@
+## Send Email
+// POST http://mkss.azurewebsites.net/Services/api/email/send
+POST https://mkssazurefunctions.azurewebsites.net/api/SendEmail
+Content-Type: application/json
+
+{
+    "From":"mkss.dev@gmail.com",
+    "To": ["muratkazanova@outlook.com", "mkazanova.us@gmail.com"],
+    "Subject":"[TEST] Tesing Azure Email Service",
+    "Body": "<h1>This is a test</h1>"
+}
