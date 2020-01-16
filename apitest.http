@@ -5,7 +5,7 @@ Content-Type: application/json
 
 {
     "From":"mkss.dev@gmail.com",
-    "To": ["muratkazanova@outlook.com", "mkazanova.us@gmail.com"],
+    "To": ["muratkazanova@outlook.com"],
     "Subject":"[TEST] Tesing Azure Email Service",
-    "Body": "<h1>This is a test</h1>"
+    "Body": "OptionsBuilder<br/>.UseLoggerFactory(ConsoleLoggerFactory) // To log to console<br/>.EnableSensitiveDataLogging() // to show parameter values"
 }
